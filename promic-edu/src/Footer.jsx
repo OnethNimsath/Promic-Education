@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaWhatsapp, FaYoutube, FaTelegram } from 'react-icons/fa';
-import promicLogo from './resources/promic-education.jpg';
+import promicLogo from './resources/promic-education-2.png';
 
 const Footer = () => {
   return (

@@ -1,10 +1,10 @@
-// src/HomePage.jsx
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Contact from './Contact'; 
 import HeroSection from './HeroSection';
 import { useInView } from 'react-intersection-observer';
+import './CardFlip.css';
 
 const HomePage = () => {
   const { ref: statsRef, inView: statsInView } = useInView({
@@ -23,18 +23,31 @@ const HomePage = () => {
   });
 
   const [showVipDetails, setShowVipDetails] = useState(false);
+  const [showCourseDetails, setShowCourseDetails] = useState(false);
 
   const vipDetails = [
-    '95%- 99% ACCURACY',
-    'SCALPING/SWING/DAY SIGNALS',
+    '80-90% ACCURATE SIGNALS',
+    'SCALPING/SWING/DAY TRADE SIGNALS',
     '24/7 CUSTOMER SUPPORT',
-    'PERSONAL GUIDENCE',
-    'SPOT/FUTURES SIGNALS',
-    'SPOT/FUTUERS TRADING PLAN',
+    'PERSONAL GUIDANCE',
+    'SPOT SIGNALS',
+    'SPOT & FUTURE TRADING PLAN',
     'LIVE TRADING',
   ];
 
-  const telegramLink = 'https://t.me/yourtelegramchannel'; // Replace with your actual Telegram link
+  const courseDetails = {
+    duration: '14 days total',
+    stages: [
+      '1st Stage - 7 days',
+      '2nd Stage - 6 days'
+    ],
+    includes: [
+      'Live Trading Lifetime',
+      'Classes via Zoom'
+    ],
+    timing: 'Classes start from 9:10 PM'
+  };
+
 
   return (
     <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
@@ -51,37 +64,130 @@ const HomePage = () => {
             ${coursesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <p className="text-gray-500 mb-2">Our Courses & Services</p>
-          <h2 className="text-4xl font-bold text-gray-800 mb-12">BEGIN YOUR TRADING JOURNEY</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-12">ELEVATE YOUR TRADING JOURNEY</h2>
           
           <div className="flex flex-col md:flex-row justify-center items-stretch space-y-8 md:space-y-0 md:space-x-8">
-            {/* Beginner to Advanced Trading Course Card */}
-            <div className="bg-gray-100 p-8 rounded-2xl shadow-xl max-w-lg w-full transition duration-300 transform hover:scale-105 flex flex-col">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Beginner to Advanced Trading Course</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                This course will help you to **master the basics of trading, SMC (Smart Money Concepts), and some concepts of ICT (Inner Circle Trader).** It's designed for new and intermediate traders to build a strong foundation.
-              </p>
-              <a href="#" className="bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 hover:bg-orange-700 mt-auto">
-                More Details
-              </a>
-            </div>
+            {/* Beginner to Advanced Trading Course Card - With 3D Flip */}
+            <div 
+              className="flip-card max-w-lg w-full"
+              style={{ minHeight: '500px' }}
+            >
+              <div className={`flip-card-inner ${showCourseDetails ? 'flipped' : ''}`}>
+                
+                {/* Front of the card */}
+                <div className="flip-card-front bg-gray-100 p-8 rounded-2xl shadow-xl transition duration-300 transform hover:scale-105 flex flex-col">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Beginner to Advanced Trading Course</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    This course will help you to master the basics of trading, SMC (Smart Money Concepts), and some concepts of ICT (Inner Circle Trader).It's designed for new and intermediate traders to build a strong foundation.
+                  </p>
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
+                    The course fee for a group online class - Rs. 20,000/=
+                  </p>
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
+                    The course fee for an individual online class - Rs. 40,000/=
+                  </p>
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
+                    VIP SIGNALS ARE NOT INCLUDED FOR THE COURSE FEE
+                  </p>
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
+                    For more course packages, navigate to 'Courses' page
+                  </p>
+                  <button
+                    onClick={() => setShowCourseDetails(true)}
+                    className="bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105
+                               hover:bg-white hover:text-orange-600 hover:border-2 hover:border-orange-600 mt-auto"
+                  >
+                    More Details
+                  </button>
+                </div>
 
-            {/* Premium VIP Signals Card with Toggleable Content */}
-            <div className="bg-gray-100 p-8 rounded-2xl shadow-xl max-w-lg w-full transition duration-300 transform hover:scale-105 flex flex-col">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">VIP Premium</h3>
-
-              {showVipDetails ? (
-                // Detailed list when showVipDetails is true
-                <>
+                {/* Back of the card */}
+                <div className="flip-card-back bg-gray-100 p-8 rounded-2xl shadow-xl flex flex-col">
                   <button 
-                    onClick={() => setShowVipDetails(false)} 
-                    className="flex items-center text-gray-600 font-bold mb-4 transition duration-200 hover:text-orange-600 focus:outline-none focus:ring-0 focus:shadow-none"
+                    onClick={() => setShowCourseDetails(false)} 
+                    className="flex items-center text-gray-600 font-bold mb-4 transition duration-200 hover:text-orange-600 focus:outline-none focus:ring-0 focus:shadow-none self-start"
                   >
                     <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
                     Go Back
                   </button>
-                  <div className="text-gray-600 space-y-2 text-left mb-6 flex-grow overflow-y-auto custom-scrollbar">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Course Details</h3>
+                  <div className="text-gray-600 text-left space-y-4 mb-4 flex-grow">
+                    <p className="font-semibold">Duration: <span className="font-normal">{courseDetails.duration}</span></p>
+                    <div>
+                      <p className="font-semibold">Stages:</p>
+                      <ul className="list-disc list-inside ml-4">
+                        {courseDetails.stages.map((stage, index) => (
+                          <li key={index}>{stage}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold">Included:</p>
+                      <ul className="list-disc list-inside ml-4">
+                        {courseDetails.includes.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <p className="font-semibold">Schedule: <span className="font-normal">{courseDetails.timing} via Zoom</span></p>
+                  </div>
+                  <a
+                    href="#"
+                    className="bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105
+                               hover:bg-white hover:text-orange-600 hover:border-2 hover:border-orange-600"
+                  >
+                    Enroll Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium VIP Signals Card - Now with 3D Flip */}
+            <div 
+              className="flip-card max-w-lg w-full"
+              style={{ minHeight: '500px' }}
+            >
+              <div className={`flip-card-inner ${showVipDetails ? 'flipped' : ''}`}>
+                
+                {/* Front of the VIP card */}
+                <div className="flip-card-front bg-gray-100 p-8 rounded-2xl shadow-xl transition duration-300 transform hover:scale-105 flex flex-col">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">VIP Premium</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    This package will provide with **95-99% accurate signals** through the Telegram channel. Get high-probability trading setups and stay ahead of the market with our expert analysis.
+                  </p>
+                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    VIP Signals for 6 months - 80$
+                  </p>
+                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    VIP Signals for 12 months - 100$ including free SMC course
+                  </p>
+                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    VIP Signals for lifetime - 120$ including free SMC course + live trading program
+                  </p>
+                  <button
+                    onClick={() => setShowVipDetails(true)}
+                    className="bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105
+                               hover:bg-white hover:text-orange-600 hover:border hover:border-orange-600 mt-auto"
+                  >
+                    More Details
+                  </button>
+                </div>
+
+                {/* Back of the VIP card */}
+                <div className="flip-card-back bg-gray-100 p-8 rounded-2xl shadow-xl flex flex-col">
+                  <button 
+                    onClick={() => setShowVipDetails(false)} 
+                    className="flex items-center text-gray-600 font-bold mb-4 transition duration-200 hover:text-orange-600 focus:outline-none focus:ring-0 focus:shadow-none self-start"
+                  >
+                    <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Go Back
+                  </button>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">VIP Details</h3>
+                  <div className="text-gray-600 space-y-2 text-left mb-6 flex-grow">
                     <ul className="space-y-2">
                       {vipDetails.map((item, index) => (
                         <li key={index} className="flex items-start">
@@ -92,28 +198,16 @@ const HomePage = () => {
                     </ul>
                   </div>
                   <a
-                    href={telegramLink}
+                    href="https://t.me/PROMIC_BROW"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 hover:bg-orange-700 mt-auto"
+                    className="bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105
+                               hover:bg-white hover:text-orange-600 hover:border-2 hover:border-orange-600 mt-auto"
                   >
                     Join Now
                   </a>
-                </>
-              ) : (
-                // Initial content when showVipDetails is false
-                <>
-                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                    This package will provide with **95-99% accurate signals** through the Telegram channel. Get high-probability trading setups and stay ahead of the market with our expert analysis.
-                  </p>
-                  <button
-                    onClick={() => setShowVipDetails(true)}
-                    className="bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 hover:bg-orange-700 mt-auto"
-                  >
-                    More Details
-                  </button>
-                </>
-              )}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -135,7 +229,7 @@ const HomePage = () => {
               <p className="text-gray-600 mt-2">COURSE STUDENTS</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-2 hover:shadow-xl">
-              <h3 className="text-4xl font-bold text-orange-600">100+</h3>
+              <h3 className="text-4xl font-bold text-orange-600">148</h3>
               <p className="text-gray-600 mt-2">PAID VIP SIGNAL MEMBERS</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-2 hover:shadow-xl">

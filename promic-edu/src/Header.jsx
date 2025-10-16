@@ -1,5 +1,5 @@
-// src/Header.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for internal routing
 import telegramIcon from './resources/telegram.png';
 import youtubeIcon from './resources/youtube.jpg';
 import promicLogo from './resources/promic-education.jpg';
@@ -28,14 +28,16 @@ const Header = () => {
       ${scrolled ? 'bg-blue-950 shadow-lg' : 'bg-orange-500'}
     `}>
       <div className="container mx-auto flex justify-between items-center p-4">
-        <a href="#home">
+        {/* Logo link changed to use Link for home route */}
+        <Link to="/">
           <img src={promicLogo} alt="Promic Education Logo" className="h-10" />
-        </a>
+        </Link>
         <nav>
           <ul className="flex items-center space-x-4 text-lg">
             <li>
-              <a 
-                href="#home" 
+              {/* Home link updated to use Link */}
+              <Link 
+                to="/" 
                 className={`
                   block py-2 px-4 rounded transition-all duration-300 
                   hover:bg-white hover:text-orange-600
@@ -43,11 +45,12 @@ const Header = () => {
                 `}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a 
-                href="#courses" 
+              {/* Courses link updated to use Link pointing to /courses */}
+              <Link 
+                to="/courses" 
                 className={`
                   block py-2 px-4 rounded transition-all duration-300 
                   hover:bg-white hover:text-orange-600
@@ -55,11 +58,12 @@ const Header = () => {
                 `}
               >
                 Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a 
-                href="#courses" 
+              {/* VIP Signals link updated to use Link pointing to /courses for now */}
+              <Link 
+                to="/courses" 
                 className={`
                   block py-2 px-4 rounded transition-all duration-300 
                   hover:bg-white hover:text-orange-600
@@ -67,11 +71,12 @@ const Header = () => {
                 `}
               >
                 VIP Signals
-              </a>
+              </Link>
             </li>
             <li>
-              <a 
-                href="#contact" 
+              {/* Contact link updated to use Link, keeping the hash for internal page scrolling */}
+              <Link 
+                to="/#contact" 
                 className={`
                   block py-2 px-4 rounded transition-all duration-300 
                   hover:bg-white hover:text-orange-600
@@ -79,9 +84,9 @@ const Header = () => {
                 `}
               >
                 Contact
-              </a>
+              </Link>
             </li>
-            {/* Buttons with conditional styling */}
+            {/* Buttons (kept as regular <a> tags for external links) */}
             <li>
               <a 
                 href="https://www.youtube.com/@PromicEducation" 
