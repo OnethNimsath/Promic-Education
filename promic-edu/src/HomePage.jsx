@@ -155,7 +155,7 @@ const HomePage = () => {
                 <div className="flip-card-front bg-gray-100 p-8 rounded-2xl shadow-xl transition duration-300 transform hover:scale-105 flex flex-col">
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">VIP Premium</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                    This package will provide with **95-99% accurate signals** through the Telegram channel. Get high-probability trading setups and stay ahead of the market with our expert analysis.
+                    This package will provide with 80-90% accurate signals through the Telegram channel. Get high-probability trading setups and stay ahead of the market with our expert analysis.
                   </p>
                   <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                     VIP Signals for 6 months - 80$

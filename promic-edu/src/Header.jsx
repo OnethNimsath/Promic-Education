@@ -61,9 +61,9 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              {/* VIP Signals link updated to use Link pointing to /courses for now */}
+              {/* VIP Signals link UPDATED to point to /vip-signals */}
               <Link 
-                to="/courses" 
+                to="/vip-signals" 
                 className={`
                   block py-2 px-4 rounded transition-all duration-300 
                   hover:bg-white hover:text-orange-600
@@ -74,9 +74,9 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              {/* Contact link updated to use Link, keeping the hash for internal page scrolling */}
+              {/* Contact link updated to use Link pointing to /contact route */}
               <Link 
-                to="/#contact" 
+                to="/contact" 
                 className={`
                   block py-2 px-4 rounded transition-all duration-300 
                   hover:bg-white hover:text-orange-600

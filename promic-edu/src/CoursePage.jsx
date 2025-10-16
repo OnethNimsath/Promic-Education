@@ -259,11 +259,11 @@ const CoursePage = () => {
             <div className="transition duration-700">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Course Structure & Schedule</h3>
               <ul className="text-gray-600 space-y-2 list-disc list-inside">
-                <li>Total Duration: **14 days**</li>
-                <li>1st Stage: **7 days** - Foundational concepts and basic strategies.</li>
-                <li>2nd Stage: **6 days** - Advanced concepts and strategy implementation.</li>
-                <li>Live Trading: **Lifetime** access to our live trading program.</li>
-                <li>Class Timing: Classes start from **9:10 PM via Zoom**.</li>
+                <li>Total Duration: 14 days</li>
+                <li>1st Stage: 7 days - Foundational concepts and basic strategies.</li>
+                <li>2nd Stage: 6 days - Advanced concepts and strategy implementation.</li>
+                <li>Live Trading: Lifetime access to our live trading program.</li>
+                <li>Class Timing: Classes start from 9:10 PM via Zoom.</li>
               </ul>
             </div>
 

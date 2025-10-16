@@ -1,4 +1,3 @@
-// src/HeroSection.jsx
 import React from 'react';
 import tradingVideo from './resources/trading-video.mp4'; 
 
@@ -27,15 +26,16 @@ const HeroSection = () => {
           The best institute for your trading journey
         </p>
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center">
-          {/* Our Services Button - New Orange & White Theme */}
-          <a href="#services" className="
-            bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 hover:bg-orange-700
+          {/* Our Services Button - UPDATED HOVER STYLE */}
+          <a href="/vip-signals" className="
+            bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 
+            hover:bg-white hover:text-orange-600 hover:border-2 hover:border-orange-600
           ">
             OUR SERVICES
           </a>
 
           {/* Contact Us Button - New Orange & White Theme */}
-          <a href="#contact" className="
+          <a href="/contact" className="
             bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 hover:bg-white hover:text-orange-600
           ">
             CONTACT US
