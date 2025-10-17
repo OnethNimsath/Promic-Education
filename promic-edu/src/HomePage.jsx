@@ -237,11 +237,11 @@ const HomePage = () => {
               <p className="text-gray-600 mt-2 text-xs sm:text-base">COURSE STUDENTS</p>
             </div>
             <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-2 hover:shadow-xl">
-              <h3 className="text-3xl sm:text-4xl font-bold text-orange-600">148</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-orange-600">140</h3>
               <p className="text-gray-600 mt-2 text-xs sm:text-base">PAID VIP SIGNAL MEMBERS</p>
             </div>
             <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-2 hover:shadow-xl">
-              <h3 className="text-3xl sm:text-4xl font-bold text-orange-600">200+</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-orange-600">500+</h3>
               <p className="text-gray-600 mt-2 text-xs sm:text-base">SMC COURSES COMPLETED</p>
             </div>
           </div>
