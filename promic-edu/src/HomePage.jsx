@@ -87,16 +87,16 @@ const HomePage = () => {
                     This course will help you to master the basics of trading, SMC (Smart Money Concepts), and some concepts of ICT (Inner Circle Trader). It's designed for new and intermediate traders to build a strong foundation.
                   </p>
                   <p className="text-gray-600 mb-2 leading-relaxed flex-grow text-sm sm:text-base">
-                    The course fee for a group online class - **Rs. 20,000/=**
+                    The course fee for a group online class - Rs. 20,000/=
                   </p>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow text-sm sm:text-base">
-                    The course fee for an individual online class - **Rs. 40,000/=**
+                    The course fee for an individual online class - Rs. 40,000/=
                   </p>
                   <p className="text-red-600 mb-4 leading-relaxed flex-grow text-sm sm:text-base font-semibold">
                     VIP SIGNALS ARE NOT INCLUDED FOR THE COURSE FEE
                   </p>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow text-sm sm:text-base">
-                    For more course packages, navigate to **'Courses' page**
+                    For more course packages, navigate to 'Courses' page
                   </p>
                   <button
                     onClick={() => setShowCourseDetails(true)}
@@ -164,13 +164,13 @@ const HomePage = () => {
                     This package will provide with 80-90% accurate signals through the Telegram channel. Get high-probability trading setups and stay ahead of the market with our expert analysis.
                   </p>
                   <p className="text-gray-600 mb-2 leading-relaxed flex-grow text-sm sm:text-base">
-                    VIP Signals for 6 months - **80$**
+                    VIP Signals for 6 months - 80$
                   </p>
                   <p className="text-gray-600 mb-2 leading-relaxed flex-grow text-sm sm:text-base">
-                    VIP Signals for 12 months - **100$** including free SMC course
+                    VIP Signals for 12 months - 100$ including free SMC course
                   </p>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow text-sm sm:text-base">
-                    VIP Signals for lifetime - **120$** including free SMC course + live trading program
+                    VIP Signals for lifetime - 120$ including free SMC course + live trading program
                   </p>
                   <button
                     onClick={() => setShowVipDetails(true)}
