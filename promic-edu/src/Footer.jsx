@@ -103,7 +103,7 @@ const Footer = () => {
         {/* Copyright and Developed By (Flex/Order for better stacking on mobile) */}
         <div className="text-center text-sm flex flex-col md:flex-row md:justify-between md:items-center">
           <p className="order-2 md:order-1 mt-4 md:mt-0">&copy; 2025 Promic Education. All rights reserved.</p>
-          <p className="order-1 md:order-2 mb-2 md:mb-0">Developed by <span className="font-semibold">Byte Orbit</span></p>
+          <p className="order-1 md:order-2 mb-2 md:mb-0">Developed by <span className="font-semibold">Byte Orbit Solutions</span></p>
         </div>
       </div>
     </footer>
