@@ -5,182 +5,193 @@ import Contact from './Contact'; // Reusing your existing Contact component
 import contactusVideo from './resources/contactus-video.mp4'; // Import the new video file
 
 const ContactUs = () => {
-  const WHATSAPP_NUMBER = "94774892554"; // Formatted for international WhatsApp link
+  const WHATSAPP_NUMBER = "94774892554"; // Formatted for international WhatsApp link
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSent, setIsSent] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false); // State for page load animation
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [isSent, setIsSent] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false); // State for page load animation
 
-  useEffect(() => {
-    // Set isLoaded to true shortly after component mounts to trigger animations
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100); 
-    return () => clearTimeout(timer);
-  }, []);
+  useEffect(() => {
+    // Set isLoaded to true shortly after component mounts to trigger animations
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100); 
+    return () => clearTimeout(timer);
+  }, []);
 
-  // Class to control load-in animation (slide-up and fade-in)
-  const visibleClass = isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8';
+  // Class to control load-in animation (slide-up and fade-in)
+  const visibleClass = isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8';
 
-  // Simple state update function for form inputs
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // Simple state update function for form inputs
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  // Constructs WhatsApp message and redirects user
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Constructs WhatsApp message and redirects user
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    // 1. Construct the message body
-    const messageBody = 
-      `Inquiry from Contact Form:\n` +
-      `\nName: ${formData.name}` +
-      `\nEmail: ${formData.email}` +
-      `\nSubject: ${formData.subject}` +
-      `\n\nMessage: ${formData.message}`;
-    
-    // 2. Encode the message and construct the WhatsApp link
-    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageBody)}`;
+    // 1. Construct the message body
+    const messageBody = 
+      `Inquiry from Contact Form:\n` +
+      `\nName: ${formData.name}` +
+      `\nEmail: ${formData.email}` +
+      `\nSubject: ${formData.subject}` +
+      `\n\nMessage: ${formData.message}`;
+    
+    // 2. Encode the message and construct the WhatsApp link
+    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageBody)}`;
 
-    // 3. Open the WhatsApp link in a new tab
-    window.open(whatsappLink, '_blank');
+    // 3. Open the WhatsApp link in a new tab
+    window.open(whatsappLink, '_blank');
 
-    // 4. Optionally show a success message and reset the form (front-end confirmation)
-    setIsSent(true);
-    setTimeout(() => {
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setIsSent(false);
-    }, 5000);
-  };
+    // 4. Optionally show a success message and reset the form (front-end confirmation)
+    setIsSent(true);
+    setTimeout(() => {
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setIsSent(false);
+    }, 5000);
+  };
 
-  const inputClasses = "w-full p-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 transition duration-200 shadow-sm";
+  // Consolidated class definition for form inputs
+  const inputClasses = "w-full p-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500 transition duration-200 shadow-sm text-sm sm:text-base";
 
-  return (
-    <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
-      <Header />
-      
-      <main className="container mx-auto p-8 flex-grow mt-20">
-        
-        {/* Contact Hero Section with Video Background - ANIMATED (Delay 50ms) */}
-        <section className={`relative text-center py-16 md:py-24 bg-orange-50 rounded-xl shadow-md mb-16 overflow-hidden transition-all duration-1000 ${visibleClass} delay-[50ms]`}>
-          
-          {/* Video Background */}
-          <div className="absolute inset-0 z-0">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="w-full h-full object-cover opacity-50"
-            >
-              <source src={contactusVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+  return (
+    <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
+      <Header />
+      
+      {/* Reduced main padding on mobile screens */}
+      <main className="container mx-auto p-4 sm:p-8 flex-grow mt-20"> 
+        
+        {/* Contact Hero Section with Video Background - ANIMATED (Delay 50ms) */}
+        <section className={`relative text-center py-12 sm:py-16 md:py-24 bg-orange-50 rounded-xl shadow-md mb-12 sm:mb-16 overflow-hidden transition-all duration-1000 ${visibleClass} delay-[50ms]`}>
+          
+          {/* Video Background */}
+          <div className="absolute inset-0 z-0">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover opacity-50"
+            >
+              <source src={contactusVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
 
-          {/* Content with Z-index and overlay for readability */}
-          <div className="relative z-10 p-4 bg-black/30 text-white/90 rounded-xl">
-            <h1 className="text-5xl font-extrabold mb-4">
-              Get In Touch
-            </h1>
-            <p className="text-lg max-w-3xl mx-auto">
-              Have questions about our courses, VIP signals, or anything else? Send us a message and we'll get back to you immediately.
-            </p>
-          </div>
-        </section>
+          {/* Content with Z-index and overlay for readability */}
+          <div className="relative z-10 p-4 bg-black/30 text-white/90 rounded-xl">
+            {/* Adjusted heading size for mobile */}
+            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
+              Get In Touch
+            </h1>
+            {/* Adjusted text size for mobile */}
+            <p className="text-base sm:text-lg max-w-3xl mx-auto">
+              Have questions about our courses, VIP signals, or anything else? Send us a message and we'll get back to you immediately.
+            </p>
+          </div>
+        </section>
 
-        {/* Contact Form and Existing Contact Details - ANIMATED (Delay 200ms) */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start transition-all duration-1000 ${visibleClass} delay-[200ms]`}>
-          
-          {/* Contact Form */}
-          <div className="bg-white p-8 rounded-xl shadow-2xl transition duration-1000 transform hover:shadow-xl">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
-            
-            {isSent && (
-                <div className="bg-green-100 text-green-700 p-4 rounded-lg mb-4 text-center font-semibold">
-                    Note: Your message is being sent via WhatsApp. Please check the new tab that has opened.
-                </div>
-            )}
+        {/* Contact Form and Existing Contact Details */}
+        {/* Uses grid-cols-1 on mobile, lg:grid-cols-2 on desktop */}
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start transition-all duration-1000 ${visibleClass} delay-[200ms]`}>
+          
+          {/* Contact Form */}
+          <div className="bg-white p-6 sm:p-8 rounded-xl shadow-2xl transition duration-1000 transform hover:shadow-xl order-2 lg:order-1">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+            
+            {isSent && (
+                <div className="bg-green-100 text-green-700 p-4 rounded-lg mb-4 text-center font-semibold text-sm sm:text-base">
+                    Note: Your message is being sent via WhatsApp. Please check the new tab that has opened.
+                </div>
+            )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className={inputClasses}
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className={inputClasses}
-                />
-              </div>
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              {/* Name Field */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className={inputClasses}
+                />
+              </div>
+              
+              {/* Email Field */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className={inputClasses}
+                />
+              </div>
 
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className={inputClasses}
-                />
-              </div>
+              {/* Subject Field */}
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                <input 
+                  type="text" 
+                  id="subject" 
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className={inputClasses}
+                />
+              </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className={inputClasses}
-                ></textarea>
-              </div>
+              {/* Message Field */}
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                <textarea 
+                  id="message" 
+                  name="message"
+                  rows="4" // Slightly reduced rows for mobile compactness
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className={inputClasses}
+                ></textarea>
+              </div>
 
-              <button 
-                type="submit"
-                className="w-full bg-orange-600 text-white font-semibold py-3 rounded-full text-lg 
-                           transition duration-300 transform hover:scale-[1.01] hover:bg-white hover:text-orange-600 hover:border-2 hover:border-orange-600"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
+              {/* Submit Button */}
+              <button 
+                type="submit"
+                className="w-full bg-orange-600 text-white font-semibold py-3 rounded-full text-base sm:text-lg 
+                           transition duration-300 transform hover:scale-[1.01] hover:bg-white hover:text-orange-600 hover:border-2 hover:border-orange-600"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
 
-          {/* Existing Contact Details (Reusing Contact component) - ANIMATED (Delay 300ms) */}
-          <div className={`lg:sticky lg:top-24 transition-all duration-1000 ${visibleClass} delay-[300ms]`}>
-            <Contact />
-          </div>
-        </div>
+          {/* Existing Contact Details (Reusing Contact component) */}
+          {/* Main Change: Removed lg:sticky on mobile (order-1 on mobile, order-2 on desktop) */}
+          <div className={`order-1 lg:order-2 transition-all duration-1000 ${visibleClass} delay-[300ms]`}>
+            <Contact />
+          </div>
+        </div>
 
-      </main>
+      </main>
 
-      <Footer />
-    </div>
-  );
+      <Footer />
+    </div>
+  );
 };
 
 export default ContactUs;

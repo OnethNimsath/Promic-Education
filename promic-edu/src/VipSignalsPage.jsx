@@ -60,10 +60,11 @@ const VipSignalsPage = () => {
         <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
             <Header />
             
-            <main className="container mx-auto p-8 flex-grow mt-20">
+            {/* Reduced main padding on mobile screens */}
+            <main className="container mx-auto p-4 sm:p-8 flex-grow mt-20"> 
                 
                 {/* Hero Section: VIP PREMIUM Banner with Video Background - ANIMATED (Delay 50ms) */}
-                <section className={`relative text-center py-16 md:py-24 bg-blue-900 rounded-xl shadow-2xl text-white overflow-hidden transition-all duration-1000 ${visibleClass} delay-[50ms] mb-16`}>
+                <section className={`relative text-center py-12 sm:py-16 md:py-24 bg-blue-900 rounded-xl shadow-2xl text-white overflow-hidden transition-all duration-1000 ${visibleClass} delay-[50ms] mb-16`}>
                     
                     {/* Video Background */}
                     <div className="absolute inset-0 z-0">
@@ -81,24 +82,28 @@ const VipSignalsPage = () => {
 
                     {/* Content Layer */}
                     <div className="relative z-10 p-4 bg-black/40 inline-block rounded-xl"> 
-                        <h1 className="text-6xl font-extrabold mb-4 border-b-4 border-orange-500 inline-block px-4 pb-2">
+                        {/* Adjusted heading size for mobile */}
+                        <h1 className="text-4xl sm:text-6xl font-extrabold mb-4 border-b-4 border-orange-500 inline-block px-4 pb-2">
                             VIP PREMIUM
                         </h1>
-                        <p className="text-xl mt-4 font-light max-w-3xl mx-auto">
+                        {/* Adjusted text size for mobile */}
+                        <p className="text-base sm:text-xl mt-4 font-light max-w-3xl mx-auto">
                             Elevate your trading with our expert-verified signals and dedicated support.
                         </p>
                     </div>
                 </section>
 
                 {/* Features and Bonuses Section - ANIMATED (Delay 150ms) */}
-                <section className={`my-16 md:my-24 grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto transition-all duration-1000 ${visibleClass} delay-150`}>
+                {/* Main Change: Uses grid-cols-1 on mobile, lg:grid-cols-3 on desktop */}
+                <section className={`my-16 md:my-24 grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 max-w-6xl mx-auto transition-all duration-1000 ${visibleClass} delay-150`}>
                     
                     {/* Core Features List */}
                     <div className="lg:col-span-2 p-6 bg-gray-100 rounded-xl shadow-lg">
-                        <h2 className="text-3xl font-bold text-gray-800 mb-6">What You Get: Core Features</h2>
+                        {/* Adjusted heading size for mobile */}
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">What You Get: Core Features</h2>
                         <ul className="space-y-4">
                             {features.map((feature, index) => (
-                                <li key={index} className="flex items-center text-lg text-gray-700">
+                                <li key={index} className="flex items-center text-base sm:text-lg text-gray-700">
                                     <CheckCircleIcon className="h-6 w-6 text-orange-600 mr-3 flex-shrink-0" />
                                     <span>{feature}</span>
                                 </li>
@@ -107,35 +112,42 @@ const VipSignalsPage = () => {
                     </div>
                     
                     {/* Bonus & Free Offers Summary */}
-                    <div className="p-6 bg-blue-100 rounded-xl shadow-lg flex flex-col justify-center">
-                        <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">INCLUDED BONUSES</h2>
+                    <div className="p-6 bg-blue-100 rounded-xl shadow-lg flex flex-col justify-center text-center">
+                        {/* Adjusted heading size for mobile */}
+                        <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-6">INCLUDED BONUSES</h2>
                         
                         {/* SMC Course Section */}
                         <div className="mb-6 border-b border-blue-300 pb-4">
-                            <p className="text-xl font-bold text-red-600">LIVE SMC COURSE</p>
-                            <p className="text-5xl font-extrabold text-red-600 mt-1">FREE</p>
-                            <p className="text-sm text-blue-800 mt-2">(Included with 1 Year & Lifetime Packages)</p>
+                            <p className="text-lg sm:text-xl font-bold text-red-600">LIVE SMC COURSE</p>
+                            {/* Adjusted text size for mobile */}
+                            <p className="text-4xl sm:text-5xl font-extrabold text-red-600 mt-1">FREE</p>
+                            <p className="text-xs sm:text-sm text-blue-800 mt-2">(Included with 1 Year & Lifetime Packages)</p>
                         </div>
 
                         {/* Live Trading Section */}
                         <div>
-                            <p className="text-xl font-bold text-red-600">LIVE TRADING</p>
-                            <p className="text-5xl font-extrabold text-red-600 mt-1">FREE</p>
-                            <p className="text-sm text-blue-800 mt-2">(Included with Lifetime Package)</p>
+                            <p className="text-lg sm:text-xl font-bold text-red-600">LIVE TRADING</p>
+                            {/* Adjusted text size for mobile */}
+                            <p className="text-4xl sm:text-5xl font-extrabold text-red-600 mt-1">FREE</p>
+                            <p className="text-xs sm:text-sm text-blue-800 mt-2">(Included with Lifetime Package)</p>
                         </div>
                     </div>
                 </section>
 
                 {/* Pricing Table Section - ANIMATED (Delay 250ms) */}
                 <section className={`my-16 md:my-24 max-w-6xl mx-auto transition-all duration-1000 ${visibleClass} delay-250`}>
-                    <h2 className="text-4xl font-bold text-gray-800 text-center mb-10">Choose Your Signal Package</h2>
+                    {/* Adjusted heading size for mobile */}
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 text-center mb-10">Choose Your Signal Package</h2>
                     
+                    {/* Main Change: Uses grid-cols-1 on mobile, md:grid-cols-3 on desktop */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {packagePricing.map((pkg, index) => (
-                            <div key={index} className="bg-white p-8 rounded-xl shadow-xl border-t-4 border-orange-600 flex flex-col items-center text-center transition-all duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
-                                <h3 className="text-2xl font-bold text-gray-800 mb-2">{pkg.name}</h3>
-                                <p className="text-5xl font-extrabold text-orange-600 mb-2">{pkg.price}</p>
-                                <p className="text-gray-600 mb-6 flex-grow">{pkg.description}</p>
+                            <div key={index} className="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-orange-600 flex flex-col items-center text-center transition-all duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
+                                {/* Adjusted text size for mobile */}
+                                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">{pkg.name}</h3>
+                                {/* Adjusted text size for mobile */}
+                                <p className="text-4xl sm:text-5xl font-extrabold text-orange-600 mb-2">{pkg.price}</p>
+                                <p className="text-sm sm:text-base text-gray-600 mb-6 flex-grow">{pkg.description}</p>
                                 
                                 {/* Package Bonuses */}
                                 {pkg.bonuses.length > 0 && (
