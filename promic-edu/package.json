@@ -9,6 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+
+  "overrides": {
+    "react-helmet-async": "3.0.0" 
+  },
+
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@vercel/speed-insights": "^1.2.0",
