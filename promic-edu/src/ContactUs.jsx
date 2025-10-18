@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Contact from './Contact'; // Reusing your existing Contact component
 import contactusVideo from './resources/contactus-video.mp4'; // Import the new video file
+import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet
 
 const ContactUs = () => {
   const WHATSAPP_NUMBER = "94774892554"; // Formatted for international WhatsApp link
@@ -63,6 +64,26 @@ const ContactUs = () => {
 
   return (
     <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
+      
+      {/* ---------------------------------------------------- */}
+      {/* NEW: Helmet component for SEO metadata for the Contact Us page */}
+      {/* ---------------------------------------------------- */}
+      <Helmet>
+        <title>Contact Promic Education | Get Support for Courses & Signals</title>
+        <meta name="description" content="Get in touch with Promic Education for enrollment, VIP signal questions, or technical support. Use our quick WhatsApp form or view our location and operating hours." />
+        <link rel="canonical" href="https://yourdomain.com/contact" />
+        
+        {/* Open Graph (OG) Tags for Social Media Sharing */}
+        <meta property="og:title" content="Contact Promic Education" />
+        <meta property="og:description" content="Get in touch with Promic Education for enrollment, VIP signal questions, or technical support. Use our quick WhatsApp form or view our location and operating hours." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com/contact" />
+        {/* Replace with a high-quality preview image suitable for the contact page */}
+        <meta property="og:image" content="https://yourdomain.com/images/contact-us-preview.jpg" /> 
+        <meta property="og:site_name" content="Promic Education" />
+        <meta property="twitter:card" content="summary_large_image" />
+      </Helmet>
+      
       <Header />
       
       {/* Reduced main padding on mobile screens */}
@@ -98,13 +119,12 @@ const ContactUs = () => {
           </div>
         </section>
 
-        {/* Contact Form and Existing Contact Details */}
-        {/* Uses grid-cols-1 on mobile, lg:grid-cols-2 on desktop */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start transition-all duration-1000 ${visibleClass} delay-[200ms]`}>
+        {/* Contact Form (SECTION 1: FULL WIDTH FORM) - ANIMATED (Delay 200ms) */}
+        <section className={`max-w-4xl mx-auto transition-all duration-1000 ${visibleClass} delay-[200ms] mb-12`}>
           
           {/* Contact Form */}
-          <div className="bg-white p-6 sm:p-8 rounded-xl shadow-2xl transition duration-1000 transform hover:shadow-xl order-2 lg:order-1">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+          <div className="bg-white p-6 sm:p-8 rounded-xl shadow-2xl transition duration-1000 transform hover:shadow-xl">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">Send Us a Message</h2>
             
             {isSent && (
                 <div className="bg-green-100 text-green-700 p-4 rounded-lg mb-4 text-center font-semibold text-sm sm:text-base">
@@ -112,7 +132,7 @@ const ContactUs = () => {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 max-w-lg mx-auto">
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
@@ -179,13 +199,14 @@ const ContactUs = () => {
               </button>
             </form>
           </div>
+        {/* END Contact Form */}
+        </section>
 
-          {/* Existing Contact Details (Reusing Contact component) */}
-          {/* Main Change: Removed lg:sticky on mobile (order-1 on mobile, order-2 on desktop) */}
-          <div className={`order-1 lg:order-2 transition-all duration-1000 ${visibleClass} delay-[300ms]`}>
+        {/* Contact Details (SECTION 2: FULL WIDTH CONTACT DETAILS AND MAP) - ANIMATED (Delay 300ms) */}
+        <section className={`transition-all duration-1000 ${visibleClass} delay-[300ms]`}>
+            {/* The Contact component contains both the 3 boxes and the map, now taking full horizontal space */}
             <Contact />
-          </div>
-        </div>
+        </section>
 
       </main>
 
