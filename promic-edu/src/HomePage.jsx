@@ -4,7 +4,7 @@ import Footer from './Footer';
 import Contact from './Contact'; 
 import HeroSection from './HeroSection';
 import { useInView } from 'react-intersection-observer';
-import { Helmet } from 'react-helmet-async'; // Import Helmet
+// Removed: import { Helmet } from 'react-helmet-async'; 
 import './CardFlip.css';
 
 const HomePage = () => {
@@ -53,22 +53,8 @@ const HomePage = () => {
   return (
     <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
 
-      <Helmet>
-        <title>Promic Education | Master Crypto Trading - Beginner to Advanced</title>
-        <meta name="description" content="Official home page for Promic Education. Start your crypto trading journey with our expert courses, highly accurate VIP signals, and personalized guidance." />
-        <link rel="canonical" href="https://yourdomain.com/" />
-        
-        {/* NEW: Open Graph (OG) Tags for Social Media Sharing */}
-        <meta property="og:title" content="Promic Education | Master Crypto Trading" />
-        <meta property="og:description" content="Official home page for Promic Education. Start your crypto trading journey with our expert courses, highly accurate VIP signals, and personalized guidance." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com/" />
-        
-        {/* Social Channel Links (Use og:see_also or add a contact link) */}
-        <meta property="og:see_also" content="https://www.youtube.com/@promiceducation5316" />
-        <meta property="og:see_also" content="https://t.me/PROMIC_BROW" />
-      </Helmet>
-      
+      {/* REMOVED: Helmet component and all SEO/OG meta tags */}
+      
       <Header />
       <HeroSection />
 

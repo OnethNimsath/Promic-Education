@@ -4,7 +4,7 @@ import Footer from './Footer';
 import Contact from './Contact';
 import { CheckCircleIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import vipsignalsVideo from './resources/vipsignals-video.mp4'; // NEW: Import video file
-import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet
+// SEO NOTE: react-helmet-async dependency removed for stable deployment.
 
 const VipSignalsPage = () => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -60,24 +60,7 @@ const VipSignalsPage = () => {
     return (
         <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
           
-          {/* ---------------------------------------------------- */}
-          {/* NEW: Helmet component for SEO metadata for the VIP Signals page */}
-          {/* ---------------------------------------------------- */}
-          <Helmet>
-            <title>VIP Signals Premium | 80-90% Accurate Crypto Trading Signals</title>
-            <meta name="description" content="Join Promic Education's VIP Signals for 80-90% accurate crypto signals, including scalping, swing, and day trade setups, 24/7 support, and free bonus courses." />
-            <link rel="canonical" href="https://yourdomain.com/vip-signals" />
-            
-            {/* Open Graph (OG) Tags for Social Media Sharing */}
-            <meta property="og:title" content="Promic VIP Signals - Crypto Trading" />
-            <meta property="og:description" content="Join Promic Education's VIP Signals for 80-90% accurate crypto signals, including scalping, swing, and day trade setups, 24/7 support, and free bonus courses." />
-            <meta property="og:type" content="product" />
-            <meta property="og:url" content="https://yourdomain.com/vip-signals" />
-            {/* Replace with a high-quality preview image specific to the signals service */}
-            <meta property="og:image" content="https://yourdomain.com/images/vip-signals-preview.jpg" /> 
-            <meta property="og:site_name" content="Promic Education" />
-            <meta property="twitter:card" content="summary_large_image" />
-          </Helmet>
+          {/* NO HELMET COMPONENT */}
           
             <Header />
             

@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Contact from './Contact'; // Reusing your existing Contact component
 import contactusVideo from './resources/contactus-video.mp4'; // Import the new video file
-import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet
+// SEO NOTE: react-helmet-async dependency removed for stable deployment.
 
 const ContactUs = () => {
   const WHATSAPP_NUMBER = "94774892554"; // Formatted for international WhatsApp link
@@ -64,26 +64,7 @@ const ContactUs = () => {
 
   return (
     <div className="flex flex-col min-h-screen w-screen overflow-x-hidden bg-white">
-      
-      {/* ---------------------------------------------------- */}
-      {/* NEW: Helmet component for SEO metadata for the Contact Us page */}
-      {/* ---------------------------------------------------- */}
-      <Helmet>
-        <title>Contact Promic Education | Get Support for Courses & Signals</title>
-        <meta name="description" content="Get in touch with Promic Education for enrollment, VIP signal questions, or technical support. Use our quick WhatsApp form or view our location and operating hours." />
-        <link rel="canonical" href="https://yourdomain.com/contact" />
-        
-        {/* Open Graph (OG) Tags for Social Media Sharing */}
-        <meta property="og:title" content="Contact Promic Education" />
-        <meta property="og:description" content="Get in touch with Promic Education for enrollment, VIP signal questions, or technical support. Use our quick WhatsApp form or view our location and operating hours." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com/contact" />
-        {/* Replace with a high-quality preview image suitable for the contact page */}
-        <meta property="og:image" content="https://yourdomain.com/images/contact-us-preview.jpg" /> 
-        <meta property="og:site_name" content="Promic Education" />
-        <meta property="twitter:card" content="summary_large_image" />
-      </Helmet>
-      
+      
       <Header />
       
       {/* Reduced main padding on mobile screens */}
